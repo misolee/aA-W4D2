@@ -1,0 +1,61 @@
+
+
+<% if action == :edit %>
+  <% action_url = cat_url(@cat) %>
+  <h1>Edit <%= cat.name %>'s page</h1>
+<% else %>
+  <% action_url = cats_url if action == :new %>
+  <h1>Generate a new cat page</h1>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  
+  
+  <label>
+    Name:
+    <input type="text" name="cat[name]" value="<%= action == :edit ? cat.name : "" %>">
+  </label>
+  <br>
+  <label>
+    Sex:
+    M <input type="radio" name="cat[sex]" value="M" <%= action == :edit ? (cat.sex == "M" ? "checked" : "") : "" %>>
+    F <input type="radio" name="cat[sex]" value="F" <%= action == :edit ? (cat.sex == "F" ? "checked" : "") : "" %>>
+  </label>
+  <br>
+  <label>
+    Color:
+    <select name="cat[color]">
+      <option disabled selected>--select from below--</option>
+      <option value="black" <%= action == :edit ? (cat.color == "black" ? "selected" : "") : "" %> >black</option>
+      <option value="brown" <%= action == :edit ? (cat.color == "brown" ? "selected" : "") : ""  %> >brown</option>
+      <option value="white" <%= action == :edit ? (cat.color == "white" ? "selected" : "") : ""  %> >white</option>
+      <option value="calico" <%= action == :edit ? (cat.color == "calico" ? "selected" : "") : ""  %> >calico</option>
+      <option value="gray" <%= action == :edit ? (cat.color == "gray" ? "selected" : "") : ""  %> >gray</option>
+      <option value="stripes" <%= action == :edit ? (cat.color == "stripes" ? "selected" : "") : ""  %> >stripes</option>
+    </select>
+  </label>
+  <br>
+  <label>
+    Birthday:
+    <input type="date" name="cat[birth_date]" value="<%= action == :edit ? cat.birth_date : "" %>">
+  </label>
+  
+  <br>
+  <label>
+    Description:
+    <textarea name="cat[description]" rows="8" cols="80" ><%= action == :edit ? cat.description : "" %></textarea>
+  </label>
+  <input type="submit" value="Submit NOW!">
+</form>
+<br>
+<br>
+<% if action == :edit %>
+  <a href="<%= cat_url(cat) %>">Take me back to cat page</a>
+<% end %>
+<br>
+<br>
+<a href="<%= cats_url %>">Take me back to the homepage</a>

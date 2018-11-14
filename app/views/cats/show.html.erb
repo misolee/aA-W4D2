@@ -1,0 +1,36 @@
+<h1><%= @cat.name %></h1>
+<br>
+
+<% if @cat.color == 'white' %>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7cPxSjPbTPmWoG-fJmg0wFsYUrcshFNFfB6B8ybaHZgovRGACA" alt="<%= @cat.name %>">
+<% elsif @cat.color == 'black' %>
+  <img src="https://images.mentalfloss.com/sites/default/files/styles/width-constrained-728/public/87226-istock-174846251.jpg" alt="<%= @cat.name %>">
+<% elsif @cat.color == 'brown' %>
+  <img src="https://kittentoob.com/wp-content/uploads/2013/05/Havana_Brown_12.jpg" alt="<%= @cat.name %>">
+<% elsif @cat.color == 'calico' %>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfRBJDQ3caaGhvUYVDUjv6eM7mH54cInf07uLG92ddmgE0evH5aw" alt="<%= @cat.name %>">
+<% elsif @cat.color == 'stripes' %>
+  <img src="https://www.great-pictures-of-cats.com/image-files/tabby-cat-1.jpg" alt="<%= @cat.name %>">
+<% elsif @cat.color == 'gray' %>
+  <img src="https://cdn.theatlantic.com/assets/media/img/mt/2017/08/GettyImages_161785570/lead_720_405.jpg?mod=1533691899" alt="<%= @cat.name %>">
+<% end %>
+  <br>
+<ul>
+  <li>Name: <%= @cat.name %></li>
+  <li>Sex: <%= @cat.sex %></li>
+  <li>Color: <%= @cat.color %></li>
+  <li>Age: <%= @cat.age(@cat.birth_date) %></li>
+  <li>Birthday: <%= @cat.birth_date %></li>
+  <br>
+  <br>
+  <p>Description: <%= @cat.description %></p>
+  <br>
+  <br>
+  
+</ul>
+
+
+<a href="<%= edit_cat_url %>">Edit this cat</a>
+<br>
+<br>
+<a href="<%= cats_url %>">Take me back to the homepage</a>

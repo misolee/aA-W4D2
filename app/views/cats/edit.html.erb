@@ -1,0 +1,48 @@
+
+
+<%= render 'form', cat: @cat, action: :edit %>
+
+<!-- 
+<form action="<#%= cat_url(@cat) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  
+  
+  <label>
+    Name:
+    <input type="text" name="cat[name]" value="<#%= @cat.name %>">
+  </label>
+  <br>
+  <label>
+    Sex:
+    M <input type="radio" name="cat[sex]" value="M">
+    F <input type="radio" name="cat[sex]" value="F">
+  </label>
+  <br>
+  <label>
+    Color:
+    <select name="cat[color]">
+      <option disabled>--select from below--</option>
+      <option value="black" <#%= @cat.color == "black" ? "selected" : ""  %>">black</option>
+      <option value="brown" <#%= @cat.color == "brown" ? "selected" : ""  %>>brown</option>
+      <option value="white" <#%= @cat.color == "white" ? "selected" : ""  %>>white</option>
+      <option value="calico" <#%= @cat.color == "calico" ? "selected" : ""  %>>calico</option>
+      <option value="gray" <#%= @cat.color == "gray" ? "selected" : ""  %>>gray</option>
+      <option value="stripes" <#%= @cat.color == "stripes" ? "selected" : ""  %>>stripes</option>
+    </select>
+  </label>
+  <br>
+  <label>
+    Birthday:
+    <input type="date" name="cat[birth_date]" value="<#%= @cat.birth_date %>">
+  </label>
+  
+  <br>
+  <label>
+    Description:
+    <textarea name="cat[description]" rows="8" cols="80" ><#%= @cat.description %></textarea>
+  </label>
+  <input type="submit" value="Submit NOW!">
+</form>
+<br>
+<br>
+<a href="<#%= cats_url %>">Take me back to the homepage</a> -->
